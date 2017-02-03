@@ -1,6 +1,6 @@
 import { AngularChi02152017Page } from './app.po';
 
-describe('angular-chi-02152017 App', function() {
+describe('angular-chi-02152017-typescript App', function() {
   let page: AngularChi02152017Page;
 
   beforeEach(() => {

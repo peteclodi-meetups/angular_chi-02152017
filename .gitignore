@@ -1,11 +1,11 @@
 # See http://help.github.com/ignore-files/ for more about ignoring files.
 
 # compiled output
-/dist
-/tmp
+/typescript/dist
+/typescript/tmp
 
 # dependencies
-/node_modules
+/typescript/node_modules
 
 # IDEs and editors
 /.idea
@@ -23,17 +23,17 @@
 !.vscode/extensions.json
 
 # misc
-/.sass-cache
-/connect.lock
-/coverage/*
-/libpeerconnection.log
+/typescript/.sass-cache
+/typescript/connect.lock
+/typescript/coverage/*
+/typescript/libpeerconnection.log
 npm-debug.log
 testem.log
-/typings
+/typescript/typings
 
 # e2e
-/e2e/*.js
-/e2e/*.map
+/typescript/e2e/*.js
+/typescript/e2e/*.map
 
 #System Files
 .DS_Store
