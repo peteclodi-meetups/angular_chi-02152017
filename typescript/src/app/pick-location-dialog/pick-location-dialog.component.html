@@ -1,0 +1,12 @@
+<span md-dialog-title>Pick a Location</span>
+
+<form (ngSubmit)="setLocation()" #locationForm="ngForm">
+  <md-input-container>
+    <input md-input name="zipCode" placeholder="Enter a new Zip Code" minlength="5" maxlength="5" [(ngModel)]="selectedZipCode" #zipCode="ngModel" required>
+  </md-input-container>
+
+  <div class="button-row" md-dialog-actions>
+    <button type="button" md-button md-dialog-close>Cancel</button>
+    <button type="submit" md-raised-button [disabled]="!locationForm.form.valid">Set Location</button>
+  </div>
+</form>

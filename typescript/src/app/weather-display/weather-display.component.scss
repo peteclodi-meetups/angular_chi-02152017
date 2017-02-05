@@ -1,0 +1,27 @@
+button {
+  margin-top: 30px;
+}
+
+.last-updated {
+  font-style: italic;
+  font-size: 10px;
+}
+
+.forecast {
+  margin-top: 30px;
+
+  .multi-day-forecast {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+
+    &>weather-forecast-display {
+      margin-right: 30px;
+
+      &:last-of-type {
+        margin-right: 15px;
+      }
+    }
+  }
+}

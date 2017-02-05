@@ -1,0 +1,27 @@
+<div *ngIf="currentZipCode && weather.location">
+  <h2>{{weather.location.name}}, {{weather.location.region}} ({{currentZipCode}})</h2>
+</div>
+<div *ngIf="!currentZipCode">
+  <button type="button" md-raised-button (click)="pickLocation()">Pick a Location</button>
+</div>
+
+
+<div *ngIf="weather.current">
+  <h3>Current Conditions:</h3>
+
+  <figure>
+    <img [src]="weather.current.condition.icon">
+  </figure>
+
+  <p>
+    {{weather.current.temp_f}}<sup>o</sup> (feels like: {{weather.current.feelslike_f}}<sup>o</sup>)
+  </p>
+  <p class="last-updated">last updated: {{weather.current.last_updated | date:'short'}}</p>
+</div>
+
+<div class="forecast" *ngIf="weather.forecast">
+  <h3>{{weather.forecast.forecastday.length}} Day Outlook</h3>
+  <div class="multi-day-forecast">
+    <weather-forecast-display *ngFor="let forecastday of weather.forecast.forecastday" [forecast]="forecastday"></weather-forecast-display>
+  </div>
+</div>
