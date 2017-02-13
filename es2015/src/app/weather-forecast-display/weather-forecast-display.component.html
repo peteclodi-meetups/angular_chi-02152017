@@ -1,0 +1,15 @@
+<md-card>
+  <md-card-title>
+    {{forecast.date | date: 'EEE'}}
+  </md-card-title>
+
+  <md-card-content>
+    <figure>
+      <img [src]="forecast.day.condition.icon">
+    </figure>
+
+    <h2>
+      {{forecast.day.maxtemp_f}}<sup>o</sup>/{{forecast.day.mintemp_f}}<sup>o</sup>
+    </h2>
+  </md-card-content>
+</md-card>

@@ -1,56 +1,81 @@
 'use strict';
 
-const HtmlWebpack = require('html-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 const path = require('path');
 const webpack = require('webpack');
 const ChunkWebpack = webpack.optimize.CommonsChunkPlugin;
-const CoreJsPlugin = require('core-js-webpack-plugin');
+const ExtractTextPlugin = require("extract-text-webpack-plugin");
 
-const rootDir = path.resolve(__dirname, '.');
+const extractSass = new ExtractTextPlugin({
+    filename: "[name].css"
+});
 
 module.exports = {
-    context: path.resolve(__dirname, 'src'),
+    context: path.resolve(__dirname, './src'),
     devServer: {
-        contentBase: path.resolve(rootDir, 'dist'),
+        contentBase: path.resolve(__dirname, './src'),
         port: 9000
     },
-    devtool: 'eval-source-map',
+    devtool: 'sourcemap',
     entry: {
-        app: [ path.resolve(rootDir, 'src', 'main') ],
-        vendor: [ path.resolve(rootDir, 'src', 'vendor') ]
-    },
-    module: {
-        loaders: [
-            { loader: 'raw', test: /\.(css|html)$/ },
-            { loader: 'babel-loader', exclude: /(node_modules)/, test: /\.js$/,
-                query: { presets: ['es2015'] }
-            },
-            { loader: 'sass-loader', exclude: /(node_modules)/, test: /\.scss$/ }
-        ]
+        main: './main.js'
     },
     output: {
+        path: path.resolve(__dirname, './dist'),
         filename: '[name].bundle.js',
-        path: path.resolve(rootDir, 'dist')
+        publicPath: '/',
+    },
+    module: {
+        rules: [
+            {
+                loader: 'raw-loader',
+                test: /\.html$/
+            },
+            {
+                test: /\.js$/,
+                loader: 'babel-loader',
+                options: {
+                    plugins: [
+                        "angular2-annotations",
+                        "transform-decorators-legacy",
+                        "transform-class-properties",
+                        "transform-flow-strip-types"
+                    ],
+                    presets: ['es2015', 'angular2']
+                },
+                exclude: [/node_modules/]
+            },
+            {
+                test: path.resolve(__dirname, './src/styles.scss'),
+                exclude: [/node_modules/],
+                use: extractSass.extract({
+                    use: 'css-loader!sass-loader'
+                })
+            },
+            {
+                test: /\.(sass|scss)$/,
+                exclude: [
+                    /node_modules/,
+                    path.resolve(__dirname, './src/styles.scss')
+                ],
+                loader: [
+                    'raw-loader',
+                    'sass-loader'
+                ]
+            }
+        ]
     },
     plugins: [
-        new CoreJsPlugin({
-            modules: ['es6', 'core.dict'], // modules / namespaces
-            blacklist: ['es6.reflect'],    // blacklist of modules / namespaces, by default - empty list
-            library: false,                // flag for build without global namespace pollution, by default - false
-            umd: true                      // use UMD wrapper for export `core` object, by default - true
-        }),
+        extractSass,
         new ChunkWebpack({
             filename: 'vendor.bundle.js',
             minChunks: Infinity,
             name: 'vendor'
         }),
-        new HtmlWebpack({
-            filename: 'index.html',
+        new webpack.HotModuleReplacementPlugin(),
+        new HtmlWebpackPlugin({
+            template: 'index.html',
             inject: 'body',
-            template: path.resolve(rootDir, 'src', 'app', 'index.html')
         })
-    ],
-    resolve: {
-        extensions: ['.js']
-    }
+    ]
 };

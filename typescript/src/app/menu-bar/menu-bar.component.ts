@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component} from '@angular/core';
 import {MdDialog} from '@angular/material';
 import {PickLocationDialogComponent} from '../pick-location-dialog/pick-location-dialog.component';
 
@@ -8,11 +8,8 @@ import {PickLocationDialogComponent} from '../pick-location-dialog/pick-location
     styleUrls: ['menu-bar.component.scss']
 })
 
-export class MenuBarComponent implements OnInit {
+export class MenuBarComponent {
   constructor(public mdDialog: MdDialog) { }
-
-  ngOnInit() {
-  }
 
   pickLocation() {
     this.mdDialog.open(PickLocationDialogComponent);

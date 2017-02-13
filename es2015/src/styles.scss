@@ -1,1 +1,22 @@
 /* You can add global styles to this file, and also import other style files */
+// App Theme
+@import '~@angular/material/core/theming/all-theme';
+
+// Include non-theme styles for core.
+@include md-core();
+
+// Define a theme.
+$typescript-primary: md-palette($md-indigo);
+$typescript-accent:  md-palette($md-pink, A200, A100, A400);
+
+$typescript-theme: md-light-theme($typescript-primary, $typescript-accent);
+
+// Include all theme styles for the components.
+@include angular-material-theme($typescript-theme);
+
+// Import the Roboto font from Google Fonts
+@import url('https://fonts.googleapis.com/css?family=Roboto:400,400i,700,700i');
+
+* {
+    font-family: 'Roboto', sans-serif;
+}
