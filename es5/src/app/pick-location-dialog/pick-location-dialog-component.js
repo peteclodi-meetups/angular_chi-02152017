@@ -2,13 +2,11 @@
     app.PickLocationDialogComponent =
         ng.core.Component({
             selector: 'pick-location-dialog',
-            templateUrl: './pick-location-dialog-component.html',
-            styleUrls: ['./pick-location-dialog-component.css'],
-            viewProviders: [ng.material.MdDialogRef, app.WeatherService]
+            templateUrl: 'app/pick-location-dialog/pick-location-dialog-component.html',
+            styleUrls: ['app/pick-location-dialog/pick-location-dialog-component.css']
         })
         .Class({
-            constructor: [ng.material.MdDialogRef, app.WeatherService, function(mdDialogRef, weatherService) {
-                this.mdDialogRef = mdDialogRef;
+            constructor: [app.WeatherService, function(weatherService) {
                 this.weatherService = weatherService;
             }],
 

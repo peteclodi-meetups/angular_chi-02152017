@@ -2,8 +2,8 @@
     app.MenuBarComponent =
         ng.core.Component({
             selector: 'menu-bar',
-            templateUrl: './menu-bar-component.html',
-            styleUrls: ['./menu-bar-component.css'],
+            templateUrl: 'app/menu-bar/menu-bar-component.html',
+            styleUrls: ['app/menu-bar/menu-bar-component.css'],
             entryComponents: [app.PickLocationDialogComponent],
             viewProviders: [ng.material.MdDialog]
         })
@@ -13,7 +13,10 @@
             }],
 
             pickLocation: function() {
-               this.mdDialog.open(app.PickLocationDialogComponent);
+                // Perform this assignment because MdDialogRef cannot be injected into
+                // app.PickLocationDialogComponent in ES 5
+                var dialogRef = this.mdDialog.open(app.PickLocationDialogComponent);
+                dialogRef.componentInstance.mdDialogRef = dialogRef;
             }
         });
 })(window.app || (window.app = {}));

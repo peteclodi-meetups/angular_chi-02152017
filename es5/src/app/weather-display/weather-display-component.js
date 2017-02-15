@@ -2,10 +2,10 @@
     app.WeatherDisplayComponent =
         ng.core.Component({
             selector: 'weather-display',
-            templateUrl: './weather-display-component.html',
-            styleUrls: ['./weather-display-component.css'],
-            entryComponents: [app.WeatherForecastDisplayComponent],
-            viewProviders: [ng.material.MdDialog, app.WeatherService]
+            templateUrl: 'app/weather-display/weather-display-component.html',
+            styleUrls: ['app/weather-display/weather-display-component.css'],
+            entryComponents: [app.PickLocationDialogComponent, app.WeatherForecastDisplayComponent],
+            viewProviders: [ng.material.MdDialog]
         })
         .Class({
             constructor: [ng.material.MdDialog, app.WeatherService, function(mdDialog, WeatherService) {
@@ -31,12 +31,11 @@
                 }
             },
 
-            pickLocation: [app.PickLocationDialogComponent, function(pickLocationDialogComponent) {
-                this.mdDialog.open(pickLocationDialogComponent);
-            }],
-
-            toString: function() {
-                return 'WeatherDisplayComponent';
-            }
+            pickLocation: function() {
+                // Perform this assignment because MdDialogRef cannot be injected into
+                // app.PickLocationDialogComponent in ES 5
+                var dialogRef = this.mdDialog.open(app.PickLocationDialogComponent);
+                dialogRef.componentInstance.mdDialogRef = dialogRef;
+            },
         });
 })(window.app || (window.app = {}));

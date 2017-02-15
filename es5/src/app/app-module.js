@@ -7,20 +7,11 @@
                 ng.http.HttpModule,
                 ng.material.MaterialModule.forRoot()
             ],
-            // providers: [
-            //     ng.http.Http,
-            //     ng.material.MdDialog,
-            //     app.WeatherService
-            // ],
-            exports: [
-                app.PickLocationDialogComponent,
+            providers: [
+                app.WeatherService
             ],
             entryComponents: [
-                app.AppComponent,
-                app.MenuBarComponent,
                 app.PickLocationDialogComponent,
-                app.WeatherDisplayComponent,
-                app.WeatherForecastDisplayComponent
             ],
             declarations: [
                 app.AppComponent,

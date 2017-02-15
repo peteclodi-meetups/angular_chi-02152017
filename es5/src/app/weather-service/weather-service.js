@@ -1,10 +1,10 @@
 (function(app) {
     app.WeatherService =
         ng.core.Class({
-            constructor: [ng.http.Http, Rx.BehaviorSubject, function WeatherService(http, BehaviorSubject) {
+            constructor: [ng.http.Http, function WeatherService(http) {
                 this.http = http;
-                this.locationSubject = new BehaviorSubject('');
-                this.weatherSubject = new BehaviorSubject({});
+                this.locationSubject = new Rx.BehaviorSubject('');
+                this.weatherSubject = new Rx.BehaviorSubject({});
             }],
 
             setCurrentLocation: function (newZipCode) {

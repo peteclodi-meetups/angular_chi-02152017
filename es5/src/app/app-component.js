@@ -2,9 +2,8 @@
     app.AppComponent =
         ng.core.Component({
             selector: 'app-root',
-            templateUrl: './app-component.html',
-            styleUrls: ['./app-component.css'],
-            // ES5
+            templateUrl: 'app/app-component.html',
+            styleUrls: ['app/app-component.css'],
             entryComponents: [app.MenuBarComponent, app.WeatherDisplayComponent]
         })
         .Class({
