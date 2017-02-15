@@ -2,24 +2,32 @@
   "name": "es5",
   "version": "0.0.0",
   "license": "MIT",
-  "scripts": {
-  },
+  "scripts": {},
   "private": true,
   "dependencies": {
-    "@angular/common": "^2.3.1",
-    "@angular/compiler": "^2.3.1",
-    "@angular/core": "^2.3.1",
-    "@angular/forms": "^2.3.1",
-    "@angular/http": "^2.3.1",
+    "@angular/common": "~2.4.0",
+    "@angular/compiler": "~2.4.0",
+    "@angular/core": "~2.4.0",
+    "@angular/forms": "~2.4.0",
+    "@angular/http": "~2.4.0",
     "@angular/material": "^2.0.0-beta.1",
-    "@angular/platform-browser": "^2.3.1",
-    "@angular/platform-browser-dynamic": "^2.3.1",
-    "@angular/router": "^3.3.1",
+    "@angular/platform-browser": "~2.4.0",
+    "@angular/platform-browser-dynamic": "~2.4.0",
+    "@angular/router": "~3.4.0",
+    "@angular/upgrade": "~2.4.0",
+    "angular-in-memory-web-api": "~0.2.4",
     "core-js": "^2.4.1",
-    "rxjs": "^5.0.1",
-    "zone.js": "^0.7.2"
+    "rxjs": "5.0.1",
+    "zone.js": "^0.7.4"
   },
   "devDependencies": {
-      "node-sass": "^4.5.0"
+    "grunt": "^1.0.1",
+    "grunt-contrib-clean": "^1.0.0",
+    "grunt-contrib-copy": "^1.0.0",
+    "grunt-contrib-watch": "^1.0.0",
+    "grunt-newer": "^1.1.2",
+    "grunt-sass": "^2.0.0",
+    "jit-grunt": "^0.10.0",
+    "time-grunt": "^1.4.0"
   }
 }

@@ -7,7 +7,7 @@ import { MaterialModule } from '@angular/material';
 import { AppComponent } from './app.component';
 import { PickLocationDialogComponent } from './pick-location-dialog/pick-location-dialog.component';
 import { MenuBarComponent } from './menu-bar/menu-bar.component';
-import { WeatherService } from './weather.service/weather.service';
+import { WeatherService } from './weather-service/weather.service';
 import { WeatherDisplayComponent } from './weather-display/weather-display.component';
 import { WeatherForecastDisplayComponent } from './weather-forecast-display/weather-forecast-display.component';
 

@@ -1,6 +1,5 @@
 import {Component, OnInit, OnDestroy} from '@angular/core';
-import {WeatherService} from '../weather.service/weather.service';
-import {Subscription} from 'rxjs';
+import {WeatherService} from '../weather-service/weather.service';
 import {MdDialog} from '@angular/material';
 import {PickLocationDialogComponent} from '../pick-location-dialog/pick-location-dialog.component';
 
@@ -37,5 +36,3 @@ export class WeatherDisplayComponent implements OnInit, OnDestroy {
         this.mdDialog.open(PickLocationDialogComponent);
     }
 }
-
-WeatherDisplayComponent.$inject = ['MdDialog', 'WeatherService'];

@@ -1,6 +1,6 @@
 import {Component, OnInit, OnDestroy} from '@angular/core';
 import {MdDialogRef} from '@angular/material';
-import {WeatherService} from '../weather.service/weather.service';
+import {WeatherService} from '../weather-service/weather.service';
 
 @Component({
   selector: 'pick-location-dialog',

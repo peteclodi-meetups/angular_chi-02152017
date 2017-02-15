@@ -1,6 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
 // App Theme
-@import '~@angular/material/core/theming/all-theme';
+@import '@angular/material/core/theming/all-theme';
 
 // Include non-theme styles for core.
 @include md-core();
