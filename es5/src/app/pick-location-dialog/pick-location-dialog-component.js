@@ -11,8 +11,9 @@
             }],
 
             ngOnInit: function() {
-                this.locationSubscription = this.weatherService.locationSubject.subscribe(location => {
-                    this.selectedZipCode = location;
+                var self = this;
+                this.locationSubscription = this.weatherService.locationSubject.subscribe(function(location) {
+                    self.selectedZipCode = location;
                 });
             },
 

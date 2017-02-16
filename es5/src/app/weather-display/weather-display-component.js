@@ -14,10 +14,11 @@
             }],
 
             ngOnInit: function() {
-                this.locationSubscription = this.weatherService.locationSubject.subscribe(zipCode => {
-                    this.currentZipCode = zipCode;
-                    this.weatherSubscription = this.weatherService.weatherSubject.subscribe(weather => {
-                        this.weather = weather;
+                var self = this;
+                this.locationSubscription = this.weatherService.locationSubject.subscribe(function(zipCode) {
+                    self.currentZipCode = zipCode;
+                    self.weatherSubscription = self.weatherService.weatherSubject.subscribe(function(weather) {
+                        self.weather = weather;
                     });
                 });
             },
