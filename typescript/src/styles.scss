@@ -3,13 +3,13 @@
 @import '~@angular/material/core/theming/all-theme';
 
 // Include non-theme styles for core.
-@include md-core();
+@include mat-core();
 
 // Define a theme.
-$typescript-primary: md-palette($md-indigo);
-$typescript-accent:  md-palette($md-pink, A200, A100, A400);
+$typescript-primary: mat-palette($mat-indigo);
+$typescript-accent:  mat-palette($mat-pink, A200, A100, A400);
 
-$typescript-theme: md-light-theme($typescript-primary, $typescript-accent);
+$typescript-theme: mat-light-theme($typescript-primary, $typescript-accent);
 
 // Include all theme styles for the components.
 @include angular-material-theme($typescript-theme);

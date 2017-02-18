@@ -3,16 +3,16 @@
 @import '~@angular/material/core/theming/all-theme';
 
 // Include non-theme styles for core.
-@include md-core();
+@include mat-core();
 
 // Define a theme.
-$typescript-primary: md-palette($md-indigo);
-$typescript-accent:  md-palette($md-pink, A200, A100, A400);
+$es2015-primary: mat-palette($mat-indigo);
+$es2015-accent:  mat-palette($mat-pink, A200, A100, A400);
 
-$typescript-theme: md-light-theme($typescript-primary, $typescript-accent);
+$es2015-theme: mat-light-theme($es2015-primary, $es2015-accent);
 
 // Include all theme styles for the components.
-@include angular-material-theme($typescript-theme);
+@include angular-material-theme($es2015-theme);
 
 // Import the Roboto font from Google Fonts
 @import url('https://fonts.googleapis.com/css?family=Roboto:400,400i,700,700i');
